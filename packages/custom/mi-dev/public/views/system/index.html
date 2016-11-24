@@ -1,0 +1,88 @@
+<div layout="column" flex data-ng-controller="IndexController">
+  <md-content layout="column" layout-padding flex>
+    <p class="md-subhead">An online investment platform by and for musicians</p>
+    <md-fab-toolbar md-open="false" count="0" md-direction="left">
+      <md-fab-trigger style="z-index:0" class="align-with-text">
+        <md-button aria-label="menu" class="md-fab md-primary">
+          <md-tooltip>Peek information</md-tooltip>
+          <md-icon>group</md-icon>
+        </md-button>
+      </md-fab-trigger>
+      <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+          <md-button aria-label="dashboard" class="md-button" ng-href="" target="_blank">
+            <md-icon>dashboard</md-icon>
+            Dashboard
+          </md-button>
+          <md-button aria-label="notifications" class="md-button" ng-href="" target="_blank">
+            <md-icon>notifications_none</md-icon>
+            Notifications
+          </md-button>
+          <md-button aria-label="messages" class="md-button" ng-href="" target="_blank">
+            <md-icon>textsms</md-icon>
+            Messages
+          </md-button>
+        </md-fab-actions>
+      </md-toolbar>
+    </md-fab-toolbar>
+    <md-divider></md-divider>
+    <div layout="row" layout-align="space-around start" layout-padding flex>
+      <div class="left" layout="column" flex>
+        <div class="next-steps">
+          <p class="md-headline">Remember</p>
+          <p>
+           ... everyone was using tiny brushes and doing watercolors,
+            while Jimi Hendrix was painting galactic scenes in Cinemascope.
+            We are working in a field of mystical resonance, sound and vibration...
+            that's what makes people cry, laugh and feel their hair stand up ...</p>
+          <p>
+            MuseInvest is a free online platform built to serve
+            as a common ground of reach between musicians and talent seekers.
+            Artists put up their music on the platform for showcasing,
+            and Scouters browse, discover and invest in them.
+          </p>
+          <md-list>
+            <md-list-item ng-href="{{category.link}}" class="secondary-button-padding" ng-repeat="category in categories" ng-click="null">
+              <p >
+                {{category.text}}
+              </p>
+              <md-button class="md-secondary" target="_blank">{{category.count}}</md-button>
+            </md-list-item>
+          </md-list>
+        </div>
+        <md-divider></md-divider>
+        <div class="packages" ng-controller="HeaderController as hdrctr">
+          <p class="md-headline" ng-if="!hdrctr.hdrvars.authenticated"><a style="text-decoration:none" ui-sref="auth.register">Explore</a> a wider range of music</p>
+          <md-card ng-repeat="track in tracks">
+            <img ng-src="{{track.image}}" class="md-card-image" alt="Site Image">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{track.name}} - {{track.author}}</span>
+                <span class="md-subhead">{{track.text}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-href="{{track.link}}" target="_blank">More Info</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+      <div class="right" layout="column" flex>
+        <div class="featured-websites">
+          <md-card ng-repeat="song in songs">
+            <img ng-src="{{song.image}}" class="md-card-image" alt="Cover art">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{song.name}} - {{song.author}}</span>
+                <span class="md-subhead">{{song.text}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-href="{{song.link}}" target="_blank">More Info</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </md-content>
+</div>

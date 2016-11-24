@@ -1,0 +1,53 @@
+<div style="background-color:black;position:fixed" class="md-toolbar-tools" ng-controller="HeaderController as hdrctr">
+  <img src="/meanStarter/assets/img/logo.png" alt="" class="MEAN-Logo"/>
+  <h2 style="cursor:pointer" class="pressed-text" ui-sref="home" mean-token="'site-title'">&nbsp;&nbsp;MUSEINVEST</h2>
+  <md-button  class="md-button" aria-label="{{item.link}}" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}" ng-repeat="item in hdrctr.menus.main" ui-sref="{{item.link}}" mean-token="item.link">
+    {{item.title}}
+  </md-button>
+  <md-button style="margin-left:40px;height:100%" class="md-button" aria-label="Discover">
+    Discover
+  </md-button>
+  <md-button style="height:100%" class="md-button" aria-label="Crowd-Picks">
+    Crowd Picks
+  </md-button>
+  <md-button style="height:100%" class="md-button" aria-label="Featured">
+    Featured
+  </md-button>
+  <span flex></span>
+  <md-button class="md-button" aria-label="Sign Up" ui-sref="auth.register" ng-if="!hdrctr.hdrvars.authenticated">
+    Join
+  </md-button>
+  <md-button class="md-button" aria-label="Login" ui-sref="auth.login" ng-if="!hdrctr.hdrvars.authenticated">
+    Login
+  </md-button>
+
+  <md-menu ng-if="hdrctr.hdrvars.authenticated" md-position-mode="target-right target">
+    <md-button aria-label="Account" class="md-button top-link" ng-click="$mdOpenMenu()">
+      <md-tooltip md-direction="left">Account Settings</md-tooltip>
+      <md-icon>account_box</md-icon>
+      <span id="toolbar-username">{{hdrctr.hdrvars.user.name}}</span>
+      <md-icon md-menu-origin>keyboard_arrow_down</md-icon>
+    </md-button>
+
+    <md-menu-content width="3">
+      <md-menu-item>
+        <md-button class="md-button" aria-label="Profile-Settings" ng-click="hdrctr.logout()">
+          <md-icon>settings</md-icon>
+          Settings
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button class="md-button" aria-label="Profile-Settings" ng-click="hdrctr.logout()">
+          <md-icon class="material-icons">backup</md-icon>
+          Upload
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button class="md-button" aria-label="Logout" ng-click="hdrctr.logout()">
+          <md-icon>exit_to_app</md-icon>
+          Logout
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</div>

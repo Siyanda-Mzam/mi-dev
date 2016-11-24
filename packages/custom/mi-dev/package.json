@@ -1,0 +1,16 @@
+{
+  "name": "MuseInvest",
+  "version": "2.0.0",
+  "description": "A online investment platform by and for musicians",
+  "author": {
+    "name": "Siyanda Mzam"
+  },
+  "mean": "0.7.0",
+  "dependencies": {
+    "meanio-system": "git://github.com/linnovate/meanio-system.git",
+    "meanio-users": "git://github.com/linnovate/meanio-users.git",
+    "meanio-circles": "git://github.com/linnovate/meanio-circles.git",
+    "meanio-admin": "git://github.com/linnovate/meanio-admin.git"
+  },
+  "license": "MIT"
+}
